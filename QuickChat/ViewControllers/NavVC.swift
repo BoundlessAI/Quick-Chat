@@ -24,6 +24,7 @@
 import UIKit
 import Firebase
 import MapKit
+import Sesame
 
 class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
@@ -289,7 +290,9 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     //MARK: ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()        
+        self.customization()
+
+        Sesame.shared?.reinforcementDelegate = self
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

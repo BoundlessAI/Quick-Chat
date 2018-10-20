@@ -23,6 +23,7 @@
 
 import UIKit
 import Firebase
+import Sesame
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navigation")!.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
         UINavigationBar.appearance().isTranslucent = false
+
+        Sesame.shared = .init(
+            appId: SesameProperties.file.appId,
+            auth: SesameProperties.file.auth,
+            versionId: SesameProperties.file.versionId,
+            userId: SesameProperties.file.userId
+        )
+
         return true
     }
     
